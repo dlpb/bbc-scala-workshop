@@ -9,6 +9,10 @@ case class Price(price: Double) extends AnyVal with Printable {
     val formatter = java.text.NumberFormat.getCurrencyInstance
     formatter.format(price)
   }
+
+  def < (other: Double): Boolean = {
+    price < other
+  }
 }
 
 

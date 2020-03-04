@@ -19,22 +19,34 @@ object Bookshop {
 
   val bookInventory = BookInventory(books)
 
-  val prettyPrintBook = (book: Book) => {
-    val prettyString =
-      s"""
-         | ${book.title}
-         |   by ${book.author.name}
-         |     at a cost of ${book.price}
-       """.stripMargin
-    println(prettyString)
-  }
 
-  books foreach prettyPrintBook
 
   def printDetails(): Unit = {
     println(s"name: $name")
     println(s"address: $address")
     println(s"books: $bookInventory")
+
+    val prettyPrintBook: Book => Unit = (book: Book) => {
+      val prettyString =
+        s"""
+           | ${book.title}
+           |   by ${book.author.name}
+           |     at a cost of ${book.price}
+       """.stripMargin
+      println(prettyString)
+    }
+
+    println("Technical books")
+
+    books
+      .filter(_.genre.equals(Technical))
+      .foreach(prettyPrintBook)
+
+
+    println("books under £15")
+    books
+      .filter(_.price < 15.00)
+      .foreach(prettyPrintBook)
 
   }
 }
