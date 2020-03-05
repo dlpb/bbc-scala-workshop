@@ -13,6 +13,10 @@ case class Price(price: Double) extends AnyVal with Printable {
   def < (other: Double): Boolean = {
     price < other
   }
+
+  def + (other: Price): Price = {
+    Price(price + other.price)
+  }
 }
 
 

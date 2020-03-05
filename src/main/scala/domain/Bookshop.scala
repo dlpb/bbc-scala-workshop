@@ -24,7 +24,7 @@ object Bookshop {
       case Failure(_) => None
     }
 
-  val books = List(
+  def books = List(
     makeBook("Scala Unleashed", Price(15.95), Author("Pete Smith"), Publisher("Tech Books Publishing Ltd.", Address(10, "High Street", "Sailsbury", "Wiltshire", "SL10 3AD")), Technical),
     makeBook("Python in the Wild", Price(12.55), Author("Joe Jones"), Publisher("Tech Books Publishing Ltd.", Address(10, "High Street", "Sailsbury", "Wiltshire", "SL10 3AD")), Technical),
     makeBook("The Wars of the Roses Retold", Price(12.34), Author("Pete Andrews"), Publisher("Historical Books Are Us", Address(5, "The Estate", "Market Harborough", "Hampshire", "HA3 4RR")), Historical),
